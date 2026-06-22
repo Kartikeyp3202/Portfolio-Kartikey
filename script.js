@@ -123,7 +123,15 @@ function animateHomepage() {
 }
 
 
+function locoInitialize() {
+    const scroll = new LocomotiveScroll({
+        el: document.querySelector('#main'),
+        smooth: true
+    });
+}
+
+
 revealToSpan();
 valueSetter();
 loaderAnimation();
-
+locoInitialize();
