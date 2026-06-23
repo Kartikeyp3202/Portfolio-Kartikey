@@ -81,7 +81,7 @@ html, body{
     color: #14CF93;
 }
 
-.mazius second{
+.mazius .second{
     font-family: "Mazius-Regular";
     color: #14CF93;
 }
@@ -113,7 +113,7 @@ html, body{
 
 #home {
     width: 100%;
-    height: 150vh;
+    min-height: 100vh;
     background-color: #f0f0f0;
 }
 
@@ -216,10 +216,11 @@ path, polyline{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 20vw;
+    margin-top: 3vw;
     width: 100%;
     padding: 7vw 7vw;
     z-index: 10;
+    min-height: 60vw;
 }
 
 #imagery #imglef{
@@ -241,7 +242,8 @@ path, polyline{
     align-items: center;
     position: relative;
     width: 60%;
-    height: auto;
+    height: 50vw;
+    min-height: 600px;
     z-index: 20;
 }
 
@@ -333,18 +335,28 @@ path, polyline{
 
 
 #images{
-    margin-top: 4vw;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-top: 6vw;
     width: 100%;
     position: relative;
+    padding: 0 5vw;
 }
 
-#cnt{
-    width: 65%;
+.cnt{
     overflow: hidden;
-    background-color: red;
     border-radius: 50px;
 }
 
-#cnt img{
+.cnt img{
     width: 105%;
+}
+
+.cnt1{
+    width: 55%;
+}
+
+.cnt2{
+    width: 28%;
 }
