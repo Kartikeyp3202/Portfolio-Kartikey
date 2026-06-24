@@ -131,7 +131,26 @@ function locoInitialize() {
 }
 
 
+
+function cardShow() {
+    document.querySelectorAll('.cnt')
+    .forEach(function(cnt){
+
+        cnt.addEventListener('mousemove', function(dets){
+
+            document.querySelector('#cursor').style.opacity = 1;
+
+            document.querySelector('#cursor').style.transform =
+            `translate(${dets.clientX}px, ${dets.clientY}px)`;
+
+        });
+
+    });
+}
+
+
 revealToSpan();
 valueSetter();
 loaderAnimation();
 locoInitialize();
+cardShow();
