@@ -367,13 +367,12 @@ path, polyline{
     top: 0;
     left: 0;
     z-index: 999999;
-    opacity: 0;
-    pointer-events: none;
 }
 
 #cursor>div{
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
     opacity: 0;
-    position: relative;
+    position: absolute;
 }
 
 #elem{
@@ -393,7 +392,7 @@ path, polyline{
     width: 2vw;
     height: 2vw;
     border: 2px solid #fff;
-    border-radius: 20%;
+    border-radius: 50%;
 }
 
 .crow .ccapsule{

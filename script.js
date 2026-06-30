@@ -133,16 +133,23 @@ function locoInitialize() {
 
 
 function cardShow() {
-    document.querySelectorAll('.cnt')
-    .forEach(function(cnt){
+    let cursor = document.querySelector("#cursor");
 
-        cnt.addEventListener('mousemove', function(dets){
+    document.querySelectorAll(".cnt").forEach(function(cnt){
 
-            document.querySelector('#cursor').style.opacity = 1;
+        cursor.addEventListener("mousemove", function(dets){
 
-            document.querySelector('#cursor').style.transform =
-            `translate(${dets.clientX}px, ${dets.clientY}px)`;
+            let index = cnt.dataset.index;
 
+            let child = cursor.children[index];
+
+            if(!child) {
+                return;
+            }
+
+            child.style.opacity = 1;
+            child.style.transform =
+                `translate(${dets.clientX}px, ${dets.clientY}px)`;
         });
 
     });
