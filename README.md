@@ -2,7 +2,7 @@
 
 Welcome to the repository of my personal developer portfolio. This project is a highly interactive, premium web experience showcasing my creative development skills, fluid animations, and modern frontend architecture.
 
-🔗 **[View the Live Website Here](https://kartikeyp3202.github.io/Portfolio-Kartikey/)** *(Update link if hosted elsewhere)*
+🔗 **[View the Live Website Here](https://portfolio-kartikey-woad.vercel.app/)** *(Update link if hosted elsewhere)*
 
 ## ✨ Key Features
 
