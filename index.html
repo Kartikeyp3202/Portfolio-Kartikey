@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <div id="noise"></div>
     <div id="main">
         <div id="loader">
             <div id="topheading">
                 <h5 class="reveal">Design Portfolio</h5>
                 <h5 class="reveal">&copy; 2026</h5>
             </div>
-            <h1 class="reveal"><span>Kartikey</span> <span class="mazius">Pandey</span> <span>is</span> <span>a</span></h1>
+            <h1 id="loader-text">Developer</h1>
         </div>
         <div id="green"></div>
         <div id="home">
@@ -29,13 +30,13 @@
                     <span class="line line1"></span>
                     <span class="line line2"></span>
                 </a>
-                <a href="#socials" id="nav-socials">
+                <a href="#connect-section" id="nav-socials">
                     Socials
                     <span class="line line1"></span>
                     <span class="line line2"></span>
                 </a>
-                <a href="#contacts" id="nav-contacts">
-                    Contacts
+                <a href="#connect-section" id="nav-contacts">
+                    Contact
                     <span class="line line1"></span>
                     <span class="line line2"></span>
                 </a>
@@ -101,12 +102,12 @@
                 <div class="playbook-grid">
                     <div class="playbook-card">
                         <div class="card-img-wrapper">
-                            <img src="./Assests/playbook1.jpg" alt="WebGL Fluid Simulation">
+                            <img src="./Assests/playbook1.jpg" alt="WebGL Fluid Dynamics">
                         </div>
                         <div class="card-info">
                             <span class="card-num">01 / CONCEPT</span>
                             <h3>WebGL Fluid Shader</h3>
-                            <p>Interactive WebGL fluid dynamics and particle physics experiment.</p>
+                            <p>Interactive GPU fluid dynamics simulation rendering real-time soap film interference patterns.</p>
                             <div class="card-tags">
                                 <span>WebGL</span>
                                 <span>GLSL</span>
@@ -116,49 +117,126 @@
                     </div>
                     <div class="playbook-card">
                         <div class="card-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1734968050747-82a48c36201a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGdlbmVyYXRpdmUlMjB0b3BvZ3JhcGh5fGVufDB8fDB8fHww" alt="Generative Typography">
+                            <img src="./Assests/playbook2.avif" alt="Topographic Noise Canvas">
                         </div>
                         <div class="card-info">
                             <span class="card-num">02 / EXPERIMENT</span>
-                            <h3>Generative Typography</h3>
-                            <p>Distorting typography utilizing 3D particle dust and dynamic forces.</p>
+                            <h3>Topographic Noise Canvas</h3>
+                            <p>Interactive vector flow fields and generative Perlin noise contours rendered in real-time.</p>
                             <div class="card-tags">
-                                <span>GSAP</span>
                                 <span>Canvas</span>
+                                <span>Noise</span>
                                 <span>Math</span>
                             </div>
                         </div>
                     </div>
                     <div class="playbook-card">
                         <div class="card-img-wrapper">
-                            <img src="https://plus.unsplash.com/premium_photo-1675432590018-cf39722ab63c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cmVhY3RpdmUlMjB3YXZlc3xlbnwwfHwwfHx8MA%3D%3D" alt="Audio Reactive Canvas">
+                            <img src="./Assests/playbook3.avif" alt="Fluid Physics Simulation">
                         </div>
                         <div class="card-info">
                             <span class="card-num">03 / CREATIVE</span>
-                            <h3>Audio Reactive Waves</h3>
-                            <p>Web Audio API driven frequency mapping and reactive waveform visualization.</p>
+                            <h3>Fluid Physics Sandbox</h3>
+                            <p>A high-performance physics engine simulating ocean wave breaking, velocity vectors, and fluid turbulence.</p>
                             <div class="card-tags">
-                                <span>WebAudio</span>
-                                <span>Canvas</span>
-                                <span>GSAP</span>
+                                <span>Physics</span>
+                                <span>WebGL</span>
+                                <span>JavaScript</span>
                             </div>
                         </div>
                     </div>
                     <div class="playbook-card">
                         <div class="card-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1655635949384-f737c5133dfe?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGFzdGhldGljJTIwa2luZW1hdGljJTIwc2ltdWxhdGlvbnN8ZW58MHx8MHx8fDA%3D" alt="Kinematics Simulation">
+                            <img src="./Assests/playbook4.avif" alt="Procedural 3D Sculpture">
                         </div>
                         <div class="card-info">
                             <span class="card-num">04 / EXPERIENCE</span>
-                            <h3>Kinematics Simulation</h3>
-                            <p>Constellation node maps and dynamic grid physics simulation.</p>
+                            <h3>Procedural 3D Sculpture</h3>
+                            <p>Procedurally generating complex wireframe scaffolds and twisted gradient tube meshes dynamically.</p>
                             <div class="card-tags">
-                                <span>Physics</span>
-                                <span>Interactive</span>
-                                <span>JavaScript</span>
+                                <span>Three.js</span>
+                                <span>WebGL</span>
+                                <span>Creative Coding</span>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            
+            <div id="marquee">
+                <div class="marquee-track">
+                    <h1>AVAILABLE FOR FREELANCE WORK — LET'S COLLABORATE — </h1>
+                    <h1>AVAILABLE FOR FREELANCE WORK — LET'S COLLABORATE — </h1>
+                    <h1>AVAILABLE FOR FREELANCE WORK — LET'S COLLABORATE — </h1>
+                    <h1>AVAILABLE FOR FREELANCE WORK — LET'S COLLABORATE — </h1>
+                </div>
+            </div>
+            
+            <div id="connect-section">
+                <div class="connect-header">
+                    <h1>Let's make something <br><span class="mazius">extraordinary</span> together.</h1>
+                </div>
+                
+                <div class="connect-content">
+                    <div class="contact-side">
+                        <div class="contact-details">
+                            <div class="time-block">
+                                <h5>YOUR LOCAL TIME</h5>
+                                <h2 id="live-time">00:00:00 GMT (+5:30)</h2>
+                            </div>
+                            <div class="email-block">
+                                <h5>GET IN TOUCH</h5>
+                                <a href="mailto:pkartikey581@gmail.com" id="copy-email">pkartikey581@gmail.com</a>
+                                <span id="copy-status">Click to copy</span>
+                            </div>
+                        </div>
+                        
+                        <form class="contact-form" action="#" method="POST">
+                            <div class="form-group">
+                                <input type="text" id="name" name="name" required placeholder=" ">
+                                <label for="name">Your Name</label>
+                                <div class="input-line"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" required placeholder=" ">
+                                <label for="email">Your Email</label>
+                                <div class="input-line"></div>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" name="message" rows="4" required placeholder=" "></textarea>
+                                <label for="message">Your Message</label>
+                                <div class="input-line"></div>
+                            </div>
+                            <button type="submit" class="submit-btn">
+                                Send Message <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="socials-side">
+                        <div class="socials-row">
+                            <h1>Socia<span class="mazius">l</span>s <div class="mini">(04)</div></h1>
+                        </div>
+                        <div class="socials-list">
+                            <a href="https://github.com/Kartikeyp3202/" target="_blank" class="social-link" data-platform="github">
+                                <span class="link-number">01</span> GitHub <span class="link-arrow">↗</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/kartikey-pandey-625538380/" target="_blank" class="social-link" data-platform="linkedin">
+                                <span class="link-number">02</span> LinkedIn <span class="link-arrow">↗</span>
+                            </a>
+                            <a href="https://x.com/kartikey2666" target="_blank" class="social-link" data-platform="twitter">
+                                <span class="link-number">03</span> Twitter <span class="link-arrow">↗</span>
+                            </a>
+                            <a href="mailto:pkartikey581@gmail.com" class="social-link" data-platform="mail">
+                                <span class="link-number">04</span> Email <span class="link-arrow">↗</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="footer">
+                    <h5>&copy; 2026 Kartikey Pandey</h5>
+                    <h5>Designed & Developed in India</h5>
                 </div>
             </div>
 

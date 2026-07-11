@@ -43,28 +43,48 @@ function valueSetter() {
 
 
 
+function cycleLoaderText() {
+    let words = ["Developer", "Designer", "Creator", "Innovator", "Kartikey Pandey"];
+    let loaderText = document.querySelector("#loader-text");
+    if(!loaderText) return;
+
+    let index = 0;
+    let cycle = setInterval(() => {
+        index++;
+        if(index < words.length) {
+            if(index === words.length - 1) {
+                loaderText.innerHTML = `<span>Kartikey</span> <span class="mazius">Pandey</span>`;
+                clearInterval(cycle);
+            } else {
+                loaderText.textContent = words[index];
+            }
+        }
+    }, 250);
+}
+
 function loaderAnimation(){
     let t1 = gsap.timeline();
 
     t1
         .from('#loader .child span', {
             x : 100,
-            delay : 1,
             stagger : .2,
             duration : 1.4,
             ease: "power3.inOut"
         })
-
-        .to('#loader .parent .child', {
+        .to(['#loader .parent .child', '#loader-text'], {
             y : "-110%",
+            opacity: 0,
             duration : 1,
+            delay: 0.5,
             ease: "circ.inOut"
         })
 
         .to('#loader', {
             height : 0,
             duration : 1,
-            ease: "circ.inOut"
+            ease: "circ.inOut",
+            delay: -0.2
         })
 
         .to('#green', {
@@ -134,6 +154,11 @@ function locoInitialize() {
     });
     if (scroll) {
         scroll.stop();
+        
+        // Auto-update scroll height when layout changes (e.g. images load, flex wraps)
+        new ResizeObserver(() => {
+            scroll.update();
+        }).observe(document.querySelector('#main'));
     }
 }
 
@@ -179,10 +204,91 @@ function cardShow() {
     });
 }
 
+function initLiveTime() {
+    let timeElem = document.querySelector('#live-time');
+    if(!timeElem) return;
+
+    function updateTime() {
+        let now = new Date();
+        let options = {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false,
+            timeZoneName: 'short'
+        };
+        let formatted = now.toLocaleTimeString('en-US', options);
+        timeElem.textContent = formatted;
+    }
+    
+    updateTime();
+    setInterval(updateTime, 1000);
+}
+
+function initCopyEmail() {
+    let emailLink = document.querySelector('#copy-email');
+    let copyStatus = document.querySelector('#copy-status');
+    if(!emailLink || !copyStatus) return;
+
+    emailLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        let emailToCopy = emailLink.textContent;
+        
+        navigator.clipboard.writeText(emailToCopy).then(() => {
+            let originalText = copyStatus.textContent;
+            copyStatus.textContent = 'Copied to clipboard!';
+            copyStatus.style.color = '#14CF93';
+            copyStatus.style.opacity = '1';
+            
+            setTimeout(() => {
+                copyStatus.textContent = originalText;
+                copyStatus.style.color = '';
+                copyStatus.style.opacity = '0.5';
+            }, 2000);
+        });
+    });
+}
+
+function initTiltEffect() {
+    let cards = document.querySelectorAll('.playbook-card');
+    
+    cards.forEach(card => {
+        let wrapper = card.querySelector('.card-img-wrapper');
+        
+        wrapper.addEventListener('mousemove', (e) => {
+            let rect = wrapper.getBoundingClientRect();
+            let x = e.clientX - rect.left;
+            let y = e.clientY - rect.top;
+            
+            let centerX = rect.width / 2;
+            let centerY = rect.height / 2;
+            
+            // Calculate tilt (max 15 degrees)
+            let rotateX = ((y - centerY) / centerY) * -15; 
+            let rotateY = ((x - centerX) / centerX) * 15;
+            
+            wrapper.style.transition = 'transform 0.1s ease-out';
+            wrapper.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        });
+        
+        wrapper.addEventListener('mouseleave', () => {
+            wrapper.style.transition = 'transform 0.8s cubic-bezier(0.19, 1, 0.22, 1)';
+            wrapper.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+        });
+        
+        wrapper.addEventListener('mouseenter', () => {
+            wrapper.style.transition = 'transform 0.1s ease-out';
+        });
+    });
+}
 
 revealToSpan();
 valueSetter();
+cycleLoaderText();
 loaderAnimation();
 locoInitialize();
 cardShow();
 navLinksSetup();
+initLiveTime();
+initCopyEmail();
+initTiltEffect();
