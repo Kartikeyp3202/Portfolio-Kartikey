@@ -82,6 +82,9 @@ function loaderAnimation(){
             ease: "circ.inOut",
             onComplete : function () {
                 animateHomepage();
+                if (scroll) {
+                    scroll.start();
+                }
             }
         })
 }
@@ -123,10 +126,29 @@ function animateHomepage() {
 }
 
 
+let scroll;
 function locoInitialize() {
-    const scroll = new LocomotiveScroll({
+    scroll = new LocomotiveScroll({
         el: document.querySelector('#main'),
         smooth: true
+    });
+    if (scroll) {
+        scroll.stop();
+    }
+}
+
+function navLinksSetup() {
+    document.querySelectorAll('#nav a').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            let targetId = link.getAttribute('href');
+            if (targetId && targetId.startsWith('#') && targetId !== '#') {
+                e.preventDefault();
+                let targetElem = document.querySelector(targetId);
+                if (targetElem && scroll) {
+                    scroll.scrollTo(targetElem);
+                }
+            }
+        });
     });
 }
 
@@ -136,22 +158,24 @@ function cardShow() {
     let cursor = document.querySelector("#cursor");
 
     document.querySelectorAll(".cnt").forEach(function(cnt){
-
-        cursor.addEventListener("mousemove", function(dets){
-
+        cnt.addEventListener("mousemove", function(dets){
             let index = cnt.dataset.index;
-
             let child = cursor.children[index];
-
             if(!child) {
                 return;
             }
-
             child.style.opacity = 1;
             child.style.transform =
                 `translate(${dets.clientX}px, ${dets.clientY}px)`;
         });
 
+        cnt.addEventListener("mouseleave", function(dets){
+            let index = cnt.dataset.index;
+            let child = cursor.children[index];
+            if(child) {
+                child.style.opacity = 0;
+            }
+        });
     });
 }
 
@@ -161,3 +185,4 @@ valueSetter();
 loaderAnimation();
 locoInitialize();
 cardShow();
+navLinksSetup();
