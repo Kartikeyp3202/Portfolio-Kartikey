@@ -282,6 +282,57 @@ function initTiltEffect() {
     });
 }
 
+function initContactForm() {
+    const form = document.getElementById('contact-form');
+    if(!form) return;
+    
+    const submitBtn = form.querySelector('.submit-btn');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.innerHTML = 'Sending...';
+        
+        const formData = new FormData(form);
+        formData.append("access_key", "e84fd6ce-0935-4c45-98f4-b6fdec599dfd");
+
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData
+        })
+        .then(async (response) => {
+            let json = await response.json();
+            if (response.status == 200) {
+                // Success
+                submitBtn.innerHTML = 'Sent Successfully! ✓';
+                submitBtn.style.backgroundColor = '#fff';
+                submitBtn.style.color = '#14CF93';
+                form.reset();
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.style.backgroundColor = '';
+                    submitBtn.style.color = '';
+                }, 4000);
+            } else {
+                console.log(response);
+                submitBtn.innerHTML = 'Error Sending';
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalBtnText;
+                }, 3000);
+            }
+        })
+        .catch(error => {
+            console.log(error);
+            submitBtn.innerHTML = 'Error Sending';
+            setTimeout(() => {
+                submitBtn.innerHTML = originalBtnText;
+            }, 3000);
+        });
+    });
+}
+
 revealToSpan();
 valueSetter();
 cycleLoaderText();
@@ -291,4 +342,5 @@ cardShow();
 navLinksSetup();
 initLiveTime();
 initCopyEmail();
+initContactForm();
 initTiltEffect();
